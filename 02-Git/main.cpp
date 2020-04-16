@@ -16,6 +16,8 @@ void tie() {
 
 int main() {
 
+    for (;;)
+    {
     srand(time(NULL));
 
     cout << endl << "Please choose:" << endl;
@@ -85,6 +87,16 @@ int main() {
         }
         if (cpuChoice == "p") {
             win();
+        }
+    }
+
+        cout << endl << "Would you like to play again? (y or n):";
+        std::string decision;
+        cin >> decision;
+        if (decision != "y" & decision != "Y")
+        {
+            cout << "Bye!" << endl;
+            break;
         }
     }
 
