@@ -34,6 +34,9 @@ int main(void)
   int  computer = 0;
   int  human    = 0;
   int  result   = 0;
+  int  cnt_human_win    = 0;
+  int  cnt_computer_win = 0;
+  int  cnt_draw         = 0;
  
   srand(time(0));
 
@@ -64,17 +67,26 @@ int main(void)
 
     if (result == DRAW)
     {
+      ++cnt_draw;
       puts("Draw\n");
     }
     else if (result == WINNER_HUMAN)
     {
+      ++cnt_human_win;
       puts("You win!\n");
     }
     else
     {
+      ++cnt_computer_win;
       puts("Computer win!\n");
     }
   }
+  
+  puts("The game is finished!");
+  printf("Results: You win %d times, computer win %d times, draw %d times\n", 
+        cnt_human_win, 
+        cnt_computer_win, 
+        cnt_draw);
 
   return 0;
 }
