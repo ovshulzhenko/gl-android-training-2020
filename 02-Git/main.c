@@ -10,11 +10,21 @@
 const char *signs_names[] = { "\"Rock\"", "\"Paper\"", "\"Scissors\""};
 const char game_signs[]   = {'r', 'p', 's'};
 
+enum
+{
+  SIGN_ROCK     = 0,
+  SIGN_PAPER    = 1,
+  SIGN_SCISSORS = 2,
+  SIGN_INVALID  = 3,
+};
+
+int sign_to_num(char sign);
 
 int main(void)
 {
-  char input = '\0';
-  int  rnd   = 0;
+  char input    = '\0';
+  int  computer = 0;
+  int  human    = 0;
  
   srand(time(0));
 
@@ -30,63 +40,43 @@ int main(void)
       continue;
     }
 
-    rnd = rand() % 3;
-    printf("PC sign is %s\n", signs_names[rnd]);
-
-    switch(input)
+    if ((human = sign_to_num(input)) == SIGN_INVALID)
     {
-      case 'r':
-      printf("Your sign is %s\n", signs_names[0]);
-      if (game_signs[rnd] == 's')
-      {
-        puts("PC defeat\n");
-      }
-      else if (game_signs[rnd] == 'p')
-      {
-        puts("PC win\n");
-      }
-      else
-      {
-        puts("Draw\n");
-      }
-      break;
-
-      case 'p':
-      printf("Your sign is %s\n", signs_names[1]);
-      if (game_signs[rnd] == 'r')
-      {
-        puts("PC defeat\n");
-      }
-      else if (game_signs[rnd] == 's')
-      {
-        puts("PC win\n");
-      }
-      else
-      {
-        puts("Draw\n");
-      }
-      break;
-
-      case 's':
-      printf("Your sign is %s\n", signs_names[2]);
-      if (game_signs[rnd] == 'p')
-      {
-        puts("PC defeat\n");
-      }
-      else if (game_signs[rnd] == 'r')
-      {
-        puts("PC win\n");
-      }
-      else
-      {
-        puts("Draw\n");
-      }
-      break;
-
-      default:
       puts("Enter your sign: r - for \"Rock\", p - for \"Paper\", s - for \"Scissors\"");
+      continue;
     }
+
+    printf("Your sign is %s\n", signs_names[human]);
+
+    computer = rand() % 3;
+    printf("PC sign is %s\n", signs_names[computer]);
   }
 
   return 0;
+}
+
+int sign_to_num(char sign)
+{
+  int retval = 0;
+
+  switch (sign)
+  {
+  case 'r':
+    retval = SIGN_ROCK;
+    break;
+
+  case 'p':
+    retval = SIGN_PAPER;
+    break;
+
+  case 's':
+    retval = SIGN_SCISSORS;
+    break;
+
+  default:
+    retval = SIGN_INVALID;
+    break;
+  }
+
+  return retval;
 }
