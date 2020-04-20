@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/02-Git/.vs/RockPaperScissors/v16
+/02-Git/RockPaperScissors.vcxproj.user
+/02-Git/RockPaperScissors.vcxproj.filters
+/02-Git/RockPaperScissors.vcxproj
+/02-Git/RockPaperScissors.sln
+/02-Git/x64/Debug
