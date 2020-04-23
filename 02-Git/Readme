@@ -1,0 +1,14 @@
+# Description:
+The console game a rock-paper-scissors.
+
+## Installation
+Ubuntu dependency:
+g++ & Make : sudo apt-get install build-essential
+Pthread : sudo apt-get install libpthread-stubs0-dev
+
+## Usage
+
+./game
+
+## Contributing
+Pull requests are welcome.
