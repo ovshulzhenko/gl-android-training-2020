@@ -8,6 +8,7 @@ namespace gm
       private:
       bool printUserChoice(char) const;
       char printComputerChoice(int);
+      int getRandomValue(void);
 
       public:
       gameRPS()=default;

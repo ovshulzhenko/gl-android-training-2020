@@ -7,8 +7,7 @@ void gameRPS::processResult(char user)
   char computer;
   printUserChoice(user);
 
-  srand (time(NULL));
-  int comp = rand() % 3 + 1;
+  int comp = getRandomValue();
   computer = printComputerChoice(comp);
 
   if(user == computer){
@@ -65,6 +64,11 @@ char gameRPS::printComputerChoice(int comp)
        default: computer = 'p'; break;
      }
     return computer;
+}
+int gameRPS::getRandomValue(void)
+{
+   srand (time(NULL));
+   return rand() % 3 + 1;
 }
 }
 
