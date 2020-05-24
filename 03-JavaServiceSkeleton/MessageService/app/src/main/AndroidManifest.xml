@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.shevchenko.message.service">
 
-    <uses-permission android:name="com.example.shevchenko.MESSAGE_PERM" />
+<!--    <uses-permission android:name="com.example.shevchenko.MESSAGE_PERM" />-->
 
     <application
         android:allowBackup="true"
@@ -14,7 +14,6 @@
         <service
             android:name=".MessageService"
             android:enabled="true"
-            android:permission="com.example.shevchenko.MESSAGE_PERM"
             android:exported="true"></service>
     </application>
 

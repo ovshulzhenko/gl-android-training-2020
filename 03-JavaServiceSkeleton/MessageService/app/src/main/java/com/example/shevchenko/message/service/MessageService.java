@@ -4,9 +4,11 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.util.Log;
 
 public class MessageService extends Service {
-    private String message;
+    private static String message;
+    private final static String TAG = "MessageService";
 
     public MessageService() {
     }
@@ -14,11 +16,14 @@ public class MessageService extends Service {
     private IMessageAidlInterface.Stub messageService = new IMessageAidlInterface.Stub() {
         @Override
         public void produceMessage(String text) throws RemoteException {
+            Log.e(TAG, "Produce message = " + text);
             message = text;
+            Log.e(TAG, "New message value = " + text);
         }
 
         @Override
         public String consumeMessage() throws RemoteException {
+            Log.e(TAG, "Consume message = " + message);
             return message;
         }
     };
@@ -26,5 +31,10 @@ public class MessageService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         return messageService;
+    }
+
+    @Override
+    public boolean onUnbind(Intent intent) {
+        return true;
     }
 }
