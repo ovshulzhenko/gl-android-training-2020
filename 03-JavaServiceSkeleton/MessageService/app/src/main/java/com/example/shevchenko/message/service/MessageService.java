@@ -13,13 +13,13 @@ public class MessageService extends Service {
 
     private IMessageAidlInterface.Stub messageService = new IMessageAidlInterface.Stub() {
         @Override
-        public String produceMessage() throws RemoteException {
-            return message;
+        public void produceMessage(String text) throws RemoteException {
+            message = text;
         }
 
         @Override
-        public void consumeMessage(String text) throws RemoteException {
-            message = text;
+        public String consumeMessage() throws RemoteException {
+            return message;
         }
     };
 
