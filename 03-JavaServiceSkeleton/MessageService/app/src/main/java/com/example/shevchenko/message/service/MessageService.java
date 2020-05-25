@@ -7,7 +7,7 @@ import android.os.RemoteException;
 import android.util.Log;
 
 public class MessageService extends Service {
-    private static String message;
+    private String message;
     private final static String TAG = "MessageService";
 
     public MessageService() {
@@ -31,10 +31,5 @@ public class MessageService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         return messageService;
-    }
-
-    @Override
-    public boolean onUnbind(Intent intent) {
-        return true;
     }
 }
