@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     String message = messageService.consumeMessage();
                     edtMessage.setText(message);
-                }catch (RemoteException | NullPointerException e) {
+                } catch (RemoteException | NullPointerException e) {
                     Log.e(TAG, "Receive is failed");
                 }
             }
@@ -58,5 +58,11 @@ public class MainActivity extends AppCompatActivity {
         } catch (SecurityException e) {
             Log.e(TAG, "bind to Message service failed by security reason");
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbindService(serviceConnection);
     }
 }
