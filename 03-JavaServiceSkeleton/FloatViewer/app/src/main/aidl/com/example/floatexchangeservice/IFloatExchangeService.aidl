@@ -1,0 +1,1 @@
+/home/user/Documents/gl-android-training-2020/03-JavaServiceSkeleton/FloatExchangeService/app/src/main/aidl/com/example/floatexchangeservice/IFloatExchangeService.aidl
