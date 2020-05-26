@@ -14,7 +14,6 @@ public class Data_Service extends Service {
     private IDataAidlInterface.Stub dataService = new IDataAidlInterface.Stub() {
         @Override
         public void set_data(String data) throws RemoteException {
-            data_buf = "";
             data_buf = data;
         }
 
