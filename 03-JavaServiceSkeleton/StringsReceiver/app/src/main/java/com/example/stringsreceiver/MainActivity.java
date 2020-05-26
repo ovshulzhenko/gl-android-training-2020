@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     output = mService.stringReceive();
                     strOutput.setText(output);
-                } catch (StringIndexOutOfBoundsException | RemoteException | NullPointerException e) {
+                } catch (RemoteException | NullPointerException e) {
                     Log.e("StringsReceiver", "string receive exception!\n");
                 }
             }

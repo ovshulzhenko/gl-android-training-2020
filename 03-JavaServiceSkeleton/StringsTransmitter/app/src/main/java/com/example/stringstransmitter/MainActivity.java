@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
                 try {
                     mService.stringTransmit(input);
-                } catch (StringIndexOutOfBoundsException | RemoteException | NullPointerException e) {
+                } catch (RemoteException | NullPointerException e) {
                     Log.e("StringsTransmitter", "string transmit exception!\n");
                 }
             }
