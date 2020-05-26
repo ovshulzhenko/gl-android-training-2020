@@ -57,4 +57,10 @@ public class MainActivity extends AppCompatActivity {
         mIntent.setClassName("com.example.stringservice", "com.example.stringservice.StringService");
         bindService(mIntent, mConnection, BIND_AUTO_CREATE);
     }
+
+    @Override
+    protected void onDestroy () {
+        super.onDestroy();
+        unbindService(mConnection);
+    }
 }
