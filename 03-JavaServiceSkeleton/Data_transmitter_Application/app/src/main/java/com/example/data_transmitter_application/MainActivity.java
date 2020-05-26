@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private ServiceConnection mConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            if(service != null){
+            if (service != null) {
                 mService = IDataAidlInterface.Stub.asInterface(service);
             }
         }
@@ -45,12 +45,12 @@ public class MainActivity extends AppCompatActivity {
         write.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String in_data =data.getText().toString();
-                try{
+                String in_data = data.getText().toString();
+                try {
                     mService.set_data(in_data);
-                }catch (RemoteException | NullPointerException e){
+                } catch (RemoteException | NullPointerException e) {
                     data.setText("call failed!!!");
-                    Log.e(TAG,"call failed!!!");
+                    Log.e(TAG, "call failed!!!");
                 }
             }
         });
@@ -59,22 +59,28 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String out_data = "";
-                try{
+                try {
                     out_data = mService.get_data();
                     data.setText(out_data);
-                }catch (RemoteException | NullPointerException e){
-                    Log.e(TAG,"call failed!!!");
+                } catch (RemoteException | NullPointerException e) {
+                    Log.e(TAG, "call failed!!!");
                 }
             }
         });
 
         Intent intent = new Intent();
-        intent.setClassName("com.example.data_service","com.example.data_service.Data_Service");
-        try{
-            bindService(intent,mConnection,BIND_AUTO_CREATE);
-        }catch (SecurityException e){
-            Log.e(TAG,"bind to service failed by security");
+        intent.setClassName("com.example.data_service", "com.example.data_service.Data_Service");
+        try {
+            bindService(intent, mConnection, BIND_AUTO_CREATE);
+        } catch (SecurityException e) {
+            Log.e(TAG, "bind to service failed by security");
         }
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbindService(mConnection);
     }
 }
