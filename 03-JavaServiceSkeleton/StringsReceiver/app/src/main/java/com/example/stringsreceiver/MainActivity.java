@@ -16,6 +16,7 @@ import com.example.stringservice.IStringAidlInterface;
 
 public class MainActivity extends AppCompatActivity {
 
+    private final String logTag = "StringsReceiver";
     private IStringAidlInterface mService;
 
     private ServiceConnection mConnection = new ServiceConnection() {
@@ -49,14 +50,19 @@ public class MainActivity extends AppCompatActivity {
                     output = mService.stringReceive();
                     strOutput.setText(output);
                 } catch (RemoteException | NullPointerException e) {
-                    Log.e("StringsReceiver", "string receive exception!\n");
+                    Log.e(logTag, "string receive exception!\n");
                 }
             }
         });
 
         Intent mIntent = new Intent();
         mIntent.setClassName("com.example.stringservice", "com.example.stringservice.StringService");
-        bindService(mIntent, mConnection, BIND_AUTO_CREATE);
+
+        try {
+            bindService(mIntent, mConnection, BIND_AUTO_CREATE);
+        } catch (SecurityException e) {
+            Log.e(logTag, "Cannot connect to the StringService\n");
+        }
     }
 
     @Override

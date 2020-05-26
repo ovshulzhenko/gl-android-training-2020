@@ -16,6 +16,7 @@ import com.example.stringservice.IStringAidlInterface;
 
 public class MainActivity extends AppCompatActivity {
 
+    private final String logTag = "StringsTransmitter";
     private IStringAidlInterface mService;
 
     private ServiceConnection mConnection = new ServiceConnection() {
@@ -48,14 +49,19 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     mService.stringTransmit(input);
                 } catch (RemoteException | NullPointerException e) {
-                    Log.e("StringsTransmitter", "string transmit exception!\n");
+                    Log.e(logTag, "string transmit exception!\n");
                 }
             }
         });
 
         Intent mIntent = new Intent();
         mIntent.setClassName("com.example.stringservice", "com.example.stringservice.StringService");
-        bindService(mIntent, mConnection, BIND_AUTO_CREATE);
+
+        try {
+            bindService(mIntent, mConnection, BIND_AUTO_CREATE);
+        } catch (SecurityException e) {
+            Log.e(logTag, "Cannot connect to the StringService\n");
+        }
     }
 
     @Override
