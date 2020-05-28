@@ -48,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     int x = Integer.valueOf(sx);
                     myService.add(x);
-                } catch (RemoteException e) {
-                    Log.e(TAG, "call add failed");
+                } catch (NumberFormatException | RemoteException | NullPointerException e) {
+                    Log.e(TAG, "call add failed: "+ e.getMessage());
                 }
             }
         });

@@ -46,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     edtX.setText(String.valueOf(myService.get()));
-                } catch (RemoteException e) {
-                    Log.e(TAG, "call get failed");
+                } catch (RemoteException | NullPointerException e) {
+                    Log.e(TAG, "call get failed: "+ e.getMessage());
                 }
             }
         });
