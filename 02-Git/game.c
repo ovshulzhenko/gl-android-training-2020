@@ -58,6 +58,12 @@ enum EPlayerRespond getUsersRespond(bool* continue_execution)
 	return ROCK;
 }
 
+const char* printRespond(const enum EPlayerRespond respond)
+{
+	static const char* responds[] = {"ROCK", "PAPER", "SCISSORS"};
+	return responds[respond];
+}
+
 enum eRoundWinner arbitrate(const enum EPlayerRespond computer,const enum EPlayerRespond user)
 {
 	const int res = computer - user;
@@ -85,6 +91,9 @@ int main(int argc, char* argv[])
 	}
 
 	winner = arbitrate(computer, user);
+	printf("players answers:"
+			"\n\t COMPUTER [%s]"
+			"\n\t USER     [%s]", printRespond(computer), printRespond(user) );
 	if(BOTH == winner)
 		printf("\nresult !!!DRAW!!!\n");
 	else if(COMPUTER == winner)
