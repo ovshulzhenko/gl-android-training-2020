@@ -18,7 +18,7 @@ enum eRoundWinner
 
 enum EPlayerRespond getComputerRespond()
 {
-	return ROCK;
+	return rand() % COUNT;
 }
 
 enum EPlayerRespond getUsersRespond()
