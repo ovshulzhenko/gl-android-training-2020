@@ -58,9 +58,16 @@ enum EPlayerRespond getUsersRespond(bool* continue_execution)
 	return ROCK;
 }
 
-enum eRoundWinner arbitrate(enum EPlayerRespond computer, enum EPlayerRespond user)
+enum eRoundWinner arbitrate(const enum EPlayerRespond computer,const enum EPlayerRespond user)
 {
-	return BOTH;
+	const int res = computer - user;
+	if(!res)
+		return BOTH;
+
+	if(-1 == res || 2 ==res )
+		return USER;
+	else
+		return COMPUTER;
 }
 
 int main(int argc, char* argv[])
@@ -76,7 +83,15 @@ int main(int argc, char* argv[])
 		printf("\n\nBye!\n");
 		return EXIT_SUCCESS;
 	}
+
 	winner = arbitrate(computer, user);
+	if(BOTH == winner)
+		printf("\nresult !!!DRAW!!!\n");
+	else if(COMPUTER == winner)
+		printf("\nwinner is !!!COMPUTER!!!\n");
+	else
+		printf("\n Congratulations! you're the winner!");
+
 
 	return EXIT_SUCCESS;
 }
