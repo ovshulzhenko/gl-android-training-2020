@@ -80,27 +80,28 @@ int main(int argc, char* argv[])
 {
 	enum EPlayerRespond computer, user;
 	enum eRoundWinner winner;
-
-	computer = getComputerRespond();
-	bool continue_execution = true;
-	user = getUsersRespond(&continue_execution);
-	if(!continue_execution)
+	while(1)
 	{
-		printf("\n\nBye!\n");
-		return EXIT_SUCCESS;
+		computer = getComputerRespond();
+		bool continue_execution = true;
+		user = getUsersRespond(&continue_execution);
+		if(!continue_execution)
+		{
+			printf("\n\nBye!\n");
+			return EXIT_SUCCESS;
+		}
+
+		winner = arbitrate(computer, user);
+		printf("players answers:"
+				"\n\t COMPUTER [%s]"
+				"\n\t USER     [%s]", printRespond(computer), printRespond(user) );
+		if(BOTH == winner)
+			printf("\nresult !!!DRAW!!!\n");
+		else if(COMPUTER == winner)
+			printf("\nwinner is !!!COMPUTER!!!\n");
+		else
+			printf("\n Congratulations! you're the winner!");
 	}
-
-	winner = arbitrate(computer, user);
-	printf("players answers:"
-			"\n\t COMPUTER [%s]"
-			"\n\t USER     [%s]", printRespond(computer), printRespond(user) );
-	if(BOTH == winner)
-		printf("\nresult !!!DRAW!!!\n");
-	else if(COMPUTER == winner)
-		printf("\nwinner is !!!COMPUTER!!!\n");
-	else
-		printf("\n Congratulations! you're the winner!");
-
 
 	return EXIT_SUCCESS;
 }
