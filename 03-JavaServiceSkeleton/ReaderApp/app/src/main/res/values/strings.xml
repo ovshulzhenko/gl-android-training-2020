@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ReaderApp</string>
+    <string name="btnReceive_lbl">Receive</string>
+</resources>
