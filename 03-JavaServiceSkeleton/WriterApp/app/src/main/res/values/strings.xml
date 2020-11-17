@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">WriterApp</string>
+    <string name="btn_send">Send data!</string>
+</resources>

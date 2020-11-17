@@ -9,7 +9,7 @@ public class ServiceImpl extends Service {
     public ServiceImpl() {
     }
     private  ISeviceApplInterface.Stub mService = new ISeviceApplInterface.Stub(){
-        private String data = null;
+        private String data = "DEFAULT DATA";
 
         @Override
         public String read() throws RemoteException {
