@@ -1,0 +1,1 @@
+/home/user/Android/Projects/gl-android-training-2020/03-JavaServiceSkeleton/ProCampService/app/src/main/aidl/com/example/procampservice/IMyInterface.aidl
