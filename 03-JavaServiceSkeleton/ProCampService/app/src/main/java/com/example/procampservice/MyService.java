@@ -6,13 +6,20 @@ import android.os.IBinder;
 import android.os.RemoteException;
 
 public class MyService extends Service {
+
+    private String mData = "Empty";
     public MyService() {
     }
 
     IMyInterface.Stub mService = new IMyInterface.Stub() {
         @Override
+        public void setData(String inp) throws RemoteException {
+            mData = inp;
+        }
+
+        @Override
         public String getData() throws RemoteException {
-            return "Hello from My Service";
+            return mData;
         }
     };
 
