@@ -1,0 +1,11 @@
+service vendor.my.hardware.ledcontrol-1.0 /vendor/bin/hw/vendor.my.hardware.ledcontrol@1.0-service
+	interface vendor.my.hardware.ledcontrol@1.0::ILedControl default
+	class hal
+	user vendor_control
+	group vendor_control
+
+on early-boot
+	chown vendor_control /sys/class/leds/bt_active/brightness
+	chown vendor_control /sys/class/leds/wifi_active/brightness
+	chown vendor_control /sys/class/leds/user_led1/brightness
+	chown vendor_control /sys/class/leds/user_led2/brightness

@@ -1,0 +1,3 @@
+package vendor.my.hardware.ledcontrol@1.0;
+
+enum ERROR_CODE : int32_t { RESULT_OK , RESULT_ERROR = -1 , };

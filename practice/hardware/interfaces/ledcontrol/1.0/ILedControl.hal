@@ -1,0 +1,6 @@
+package vendor.my.hardware.ledcontrol@1.0;
+
+interface ILedControl {
+     getLedBrightness(string led_id) generates (int32_t r);
+     setLedBrightness(string led_id, int32_t val) generates (ERROR_CODE r);
+};
