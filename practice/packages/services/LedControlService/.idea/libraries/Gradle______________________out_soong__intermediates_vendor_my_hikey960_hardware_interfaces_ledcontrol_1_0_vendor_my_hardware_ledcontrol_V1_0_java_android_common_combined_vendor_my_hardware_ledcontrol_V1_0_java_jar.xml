@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: ./../../../../../../out/soong/.intermediates/vendor/my/hikey960/hardware/interfaces/ledcontrol/1.0/vendor.my.hardware.ledcontrol-V1.0-java/android_common/combined/vendor.my.hardware.ledcontrol-V1.0-java.jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../../../../out/soong/.intermediates/vendor/my/hikey960/hardware/interfaces/ledcontrol/1.0/vendor.my.hardware.ledcontrol-V1.0-java/android_common/combined/vendor.my.hardware.ledcontrol-V1.0-java.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
