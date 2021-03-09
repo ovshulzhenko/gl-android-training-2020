@@ -1,0 +1,5 @@
+In order to build the project the following steps should be completed:
+
+1) Copy directory content to hikey960/vendor/vendor_name/hikey960 dir;
+2) Edit hikey960/device/linaro/hikey/hikey960/device-hikey960.mk and add 
+   the following string: $(call inherit-product-if-exists, vendor/vendor_name/hikey960/device-vendor.mk)
